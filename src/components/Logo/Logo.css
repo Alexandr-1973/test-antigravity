@@ -1,0 +1,20 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__icon svg {
+    stroke: none;
+}

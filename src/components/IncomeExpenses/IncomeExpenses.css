@@ -1,0 +1,99 @@
+.income-expenses {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.income-expenses__title {
+    padding: var(--spacing-5);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.income-expenses__table-wrapper {
+    overflow-x: auto;
+}
+
+.income-expenses__table {
+    width: 100%;
+    min-width: 350px;
+}
+
+.income-expenses__table th,
+.income-expenses__table td {
+    padding: var(--spacing-4) var(--spacing-5);
+    text-align: left;
+}
+
+.income-expenses__table th {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--color-background);
+}
+
+.income-expenses__table tbody tr {
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color var(--transition-fast);
+}
+
+.income-expenses__table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.income-expenses__table tbody tr:hover {
+    background-color: var(--color-background);
+}
+
+.income-expenses__type {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: capitalize;
+}
+
+.income-expenses__type--income {
+    background-color: rgba(89, 177, 122, 0.1);
+    color: var(--color-income);
+}
+
+.income-expenses__type--expense {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--color-expense);
+}
+
+.income-expenses__name {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+.income-expenses__amount {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+}
+
+.income-expenses__amount--income {
+    color: var(--color-income);
+}
+
+.income-expenses__amount--expense {
+    color: var(--color-expense);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+
+    .income-expenses__table th,
+    .income-expenses__table td {
+        padding: var(--spacing-3);
+    }
+}

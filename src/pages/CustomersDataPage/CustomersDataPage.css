@@ -1,0 +1,108 @@
+.customers-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+}
+
+.customers-page__content {
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.customers-page__title {
+    padding: var(--spacing-5);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.customers-page__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.customers-page__table-wrapper {
+    overflow-x: auto;
+}
+
+.customers-page__table {
+    width: 100%;
+    min-width: 800px;
+}
+
+.customers-page__table th,
+.customers-page__table td {
+    padding: var(--spacing-4) var(--spacing-5);
+    text-align: left;
+}
+
+.customers-page__table th {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--color-background);
+}
+
+.customers-page__table tbody tr {
+    border-bottom: 1px solid var(--color-border-light);
+    transition: background-color var(--transition-fast);
+}
+
+.customers-page__table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.customers-page__table tbody tr:hover {
+    background-color: var(--color-background);
+}
+
+.customers-page__table td {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+}
+
+.customers-page__user {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3);
+}
+
+.customers-page__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    flex-shrink: 0;
+}
+
+.customers-page__email {
+    color: var(--color-text-secondary);
+}
+
+.customers-page__empty {
+    text-align: center;
+    padding: var(--spacing-8) !important;
+    color: var(--color-text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+
+    .customers-page__table th,
+    .customers-page__table td {
+        padding: var(--spacing-3);
+    }
+}

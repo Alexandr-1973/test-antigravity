@@ -1,0 +1,108 @@
+.supplier-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+.supplier-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+}
+
+.supplier-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-4);
+}
+
+.supplier-form__label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+}
+
+.supplier-form__input,
+.supplier-form__select {
+    padding: var(--spacing-3) var(--spacing-4);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.supplier-form__input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.supplier-form__input:focus,
+.supplier-form__select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(89, 177, 122, 0.15);
+}
+
+.supplier-form__input--error {
+    border-color: var(--color-error);
+}
+
+.supplier-form__input--error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.supplier-form__select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-4) center;
+    padding-right: var(--spacing-10);
+}
+
+.supplier-form__error {
+    font-size: var(--font-size-xs);
+    color: var(--color-error);
+}
+
+.supplier-form__actions {
+    display: flex;
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-4);
+}
+
+.supplier-form__btn {
+    flex: 1;
+    padding: var(--spacing-3) var(--spacing-6);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-fast);
+}
+
+.supplier-form__btn--cancel {
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.supplier-form__btn--cancel:hover {
+    background-color: var(--color-border-light);
+}
+
+.supplier-form__btn--submit {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.supplier-form__btn--submit:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .supplier-form__row {
+        grid-template-columns: 1fr;
+    }
+}

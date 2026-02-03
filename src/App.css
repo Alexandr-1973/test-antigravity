@@ -1,0 +1,38 @@
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    text-transform: capitalize;
+}
+
+.status-badge--completed,
+.status-badge--active {
+    background-color: rgba(89, 177, 122, 0.15);
+    color: var(--color-primary);
+}
+
+.status-badge--pending,
+.status-badge--processing {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: var(--color-warning);
+}
+
+.status-badge--cancelled,
+.status-badge--deactive {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--color-error);
+}
+
+.status-badge--confirmed,
+.status-badge--shipped {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: var(--color-info);
+}
+
+.status-badge--delivered {
+    background-color: rgba(89, 177, 122, 0.15);
+    color: var(--color-primary);
+}

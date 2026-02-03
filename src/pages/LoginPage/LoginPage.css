@@ -1,0 +1,302 @@
+.login-page {
+    min-height: 100vh;
+    background-color: #FAFCFE;
+    /* Very light off-white/blueish tint */
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pill-div {
+    display: flex;
+    align-items: baseline;
+    /* Centered looks better for pill/text alignment */
+}
+
+/* Background Decorative Shapes */
+.login-bg-shape {
+    position: absolute;
+    background-color: rgba(235, 245, 240, 0.8);
+    /* Light pastel green */
+    border-radius: 100px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.login-bg-shape--1 {
+    width: 600px;
+    height: 120px;
+    bottom: 50px;
+    right: -100px;
+    transform: rotate(-25deg);
+}
+
+.login-bg-shape--2 {
+    width: 600px;
+    height: 120px;
+    bottom: -80px;
+    right: 50px;
+    transform: rotate(-25deg);
+}
+
+/* Container */
+.login-container {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--spacing-4) var(--spacing-5);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    z-index: 1;
+}
+
+/* Header */
+.login-header {
+    padding-top: var(--spacing-4);
+    margin-bottom: var(--spacing-8);
+}
+
+.login-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+}
+
+.login-brand__text {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+}
+
+/* Content Layout */
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Mobile/Tablet center stack */
+    justify-content: center;
+    gap: var(--spacing-10);
+    flex: 1;
+    padding-bottom: var(--spacing-10);
+}
+
+/* Visuals Section */
+.login-visuals {
+
+    width: 100%;
+    max-width: 500px;
+
+
+}
+
+/* Inline Pill Image */
+/* Inline Pill Image */
+.title-pill-img {
+    width: 95px;
+    height: 93px;
+    /* object-fit: contain;
+    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.2)); */
+}
+
+/* Typography Defaults (Mobile) */
+.login-title {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.2;
+    color: #1d1e21;
+    margin: 0;
+}
+
+.text-highlight {
+    color: var(--color-primary);
+    display: inline-block;
+}
+
+/* Form Section */
+.login-form-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+}
+
+/* Rounded Inputs */
+.form-input-rounded {
+    width: 100%;
+    padding: var(--spacing-4) var(--spacing-6);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    background-color: var(--color-white);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.form-input-rounded:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.form-input-rounded::placeholder {
+    color: var(--color-text-light);
+}
+
+.form-input--error {
+    border-color: var(--color-error);
+}
+
+/* Rounded Button */
+.login-btn-rounded {
+    width: 100%;
+    padding: var(--spacing-4);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50px;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.login-btn-rounded:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.login-btn-rounded:disabled {
+    background-color: var(--color-text-light);
+    cursor: not-allowed;
+}
+
+/* Alerts and Errors */
+.form-alert {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-sm);
+}
+
+.form-alert--error {
+    background-color: #FEE2E2;
+    color: #DC2626;
+    border: 1px solid #FECACA;
+}
+
+.form-error {
+    display: block;
+    color: var(--color-error);
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-1);
+    margin-left: var(--spacing-4);
+}
+
+/* ========================================
+   Responsive Styling
+   ======================================== */
+
+/* Tablet Layout (768px - 1439px) */
+@media (min-width: 768px) and (max-width: 1439px) {
+    .login-visuals {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .login-title {
+        font-size: 54px;
+        line-height: 1.1;
+    }
+
+    .pill-div {
+        justify-content: flex-start;
+    }
+
+    .title-pill-img {
+        width: 179px;
+        height: 175px;
+    }
+}
+
+/* Desktop Layout (1440px+) */
+@media (min-width: 1440px) {
+    .login-content {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: flex-start;
+        padding-top: var(--spacing-12);
+        max-width: 1440px;
+        /* width: 100%; */
+        margin: 0 auto;
+        gap: 150px;
+    }
+
+    .login-visuals {
+        max-width: 650px;
+        /* Refined to 650px to force 'to all' to line 3 */
+    }
+
+    .login-title {
+        font-size: 54px;
+        line-height: 1.1;
+        font-weight: 700;
+    }
+
+    .pill-div {
+        width: 614px;
+        /* Adjust alignment if needed */
+    }
+
+    .login-form-wrapper {
+        max-width: 450px;
+        position: relative;
+        z-index: 5;
+    }
+
+    .title-pill-img {
+        width: 179px;
+        height: 175px;
+        margin-left: -20px;
+        /* Slight overlap with text */
+        margin-top: 20px;
+        /* Push down to bridge lines */
+    }
+}
+
+/* Mobile Tweak (max-width 767px) */
+@media (max-width: 767px) {
+    .login-header {
+        margin-bottom: var(--spacing-4);
+    }
+
+    .login-content {
+        gap: var(--spacing-8);
+        padding-top: var(--spacing-8);
+    }
+
+    .login-visuals {
+        padding-top: var(--spacing-4);
+    }
+
+    .login-title {
+        font-size: 28px;
+        /* User spec */
+    }
+
+    .title-pill-img {
+        width: 93px;
+        height: 95px;
+    }
+
+    .login-bg-shape {
+        opacity: 0.5;
+    }
+}
