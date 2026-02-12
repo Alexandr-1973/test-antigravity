@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { suppliersApi } from '../../services/api';
 import { supplierStatuses } from '../../data/mockData';
-import Filter from '../../components/Filter';
-import Modal from '../../components/Modal';
-import SupplierForm from '../../components/SupplierForm';
-import Icon from '../../components/Icon';
-import './AllSuppliersPage.css';
+import Filter from '../../components/Filter/Filter';
+import Modal from '../../components/Modal/Modal';
+import SupplierForm from '../../components/SupplierForm/SupplierForm';
+import Icon from '../../components/Icon/Icon';
+import styles from './AllSuppliersPage.module.css';
 
 const AllSuppliersPage = () => {
     const [suppliers, setSuppliers] = useState([]);
@@ -78,15 +78,15 @@ const AllSuppliersPage = () => {
     };
 
     const getStatusClass = (status) => {
-        return `status-badge status-badge--${status.toLowerCase()}`;
+        return `statusBadge statusBadge${status.charAt(0).toUpperCase() + status.slice(1).toLowerCase()}`;
     };
 
     return (
-        <div className="suppliers-page">
-            <div className="suppliers-page__header">
+        <div className={styles.suppliersPage}>
+            <div className={styles.suppliersPageHeader}>
                 <Filter placeholder="User Name" onFilter={handleFilter} />
                 <button
-                    className="suppliers-page__add-btn"
+                    className={styles.suppliersPageAddBtn}
                     onClick={() => setIsAddModalOpen(true)}
                 >
                     <Icon name="plus" size={16} />
@@ -94,17 +94,17 @@ const AllSuppliersPage = () => {
                 </button>
             </div>
 
-            <div className="suppliers-page__content">
-                <div className="suppliers-page__table-container">
-                    <h2 className="suppliers-page__title">All suppliers</h2>
+            <div className={styles.suppliersPageContent}>
+                <div className={styles.suppliersPageTableContainer}>
+                    <h2 className={styles.suppliersPageTitle}>All suppliers</h2>
 
                     {isLoading ? (
-                        <div className="suppliers-page__loading">
-                            <div className="loading-spinner" />
+                        <div className={styles.suppliersPageLoading}>
+                            <div className="loadingSpinner" />
                         </div>
                     ) : (
-                        <div className="suppliers-page__table-wrapper">
-                            <table className="suppliers-page__table">
+                        <div className={styles.suppliersPageTableWrapper}>
+                            <table className={styles.suppliersPageTable}>
                                 <thead>
                                     <tr>
                                         <th>Suppliers Info</th>
@@ -119,7 +119,7 @@ const AllSuppliersPage = () => {
                                 <tbody>
                                     {suppliers.length === 0 ? (
                                         <tr>
-                                            <td colSpan="7" className="suppliers-page__empty">
+                                            <td colSpan="7" className={styles.suppliersPageEmpty}>
                                                 No suppliers found
                                             </td>
                                         </tr>
@@ -127,8 +127,8 @@ const AllSuppliersPage = () => {
                                         suppliers.map((supplier) => (
                                             <tr key={supplier.id}>
                                                 <td>
-                                                    <div className="suppliers-page__user">
-                                                        <div className="suppliers-page__avatar">
+                                                    <div className={styles.suppliersPageUser}>
+                                                        <div className={styles.suppliersPageAvatar}>
                                                             {supplier.name.charAt(0)}
                                                         </div>
                                                         <span>{supplier.name}</span>
@@ -145,7 +145,7 @@ const AllSuppliersPage = () => {
                                                 </td>
                                                 <td>
                                                     <button
-                                                        className="suppliers-page__action-btn"
+                                                        className={styles.suppliersPageActionBtn}
                                                         onClick={() => openEditModal(supplier)}
                                                         title="Edit supplier"
                                                     >

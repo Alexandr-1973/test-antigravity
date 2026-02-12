@@ -1,4 +1,4 @@
-import './RecentCustomers.css';
+import styles from './RecentCustomers.module.css';
 
 const RecentCustomers = ({ customers }) => {
     const formatCurrency = (amount) => {
@@ -9,11 +9,11 @@ const RecentCustomers = ({ customers }) => {
     };
 
     return (
-        <div className="recent-customers">
-            <h2 className="recent-customers__title">Recent Customers</h2>
+        <div className={styles.recentCustomers}>
+            <h2 className={styles.recentCustomersTitle}>Recent Customers</h2>
 
-            <div className="recent-customers__table-wrapper">
-                <table className="recent-customers__table">
+            <div className={styles.recentCustomersTableWrapper}>
+                <table className={styles.recentCustomersTable}>
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -25,22 +25,22 @@ const RecentCustomers = ({ customers }) => {
                         {customers.map((customer) => (
                             <tr key={customer.id}>
                                 <td>
-                                    <div className="recent-customers__user">
-                                        <div className="recent-customers__avatar">
+                                    <div className={styles.recentCustomersUser}>
+                                        <div className={styles.recentCustomersAvatar}>
                                             {customer.image ? (
                                                 <img src={customer.image} alt={customer.name} />
                                             ) : (
                                                 customer.name.charAt(0)
                                             )}
                                         </div>
-                                        <span className="recent-customers__name">{customer.name}</span>
+                                        <span className={styles.recentCustomersName}>{customer.name}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <span className="recent-customers__email">{customer.email}</span>
+                                    <span className={styles.recentCustomersEmail}>{customer.email}</span>
                                 </td>
                                 <td>
-                                    <span className="recent-customers__amount">
+                                    <span className={styles.recentCustomersAmount}>
                                         {formatCurrency(customer.spent)}
                                     </span>
                                 </td>

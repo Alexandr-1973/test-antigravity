@@ -1,5 +1,5 @@
-import Icon from '../Icon';
-import './Statistics.css';
+import Icon from '../Icon/Icon';
+import styles from './Statistics.module.css';
 
 const Statistics = ({ data }) => {
     const stats = [
@@ -27,15 +27,21 @@ const Statistics = ({ data }) => {
     ];
 
     return (
-        <div className="statistics">
+        <div className={styles.statistics}>
             {stats.map(({ key, icon, label, value, color }) => (
-                <div key={key} className={`statistics__card statistics__card--${color}`}>
-                    <div className="statistics__icon">
+                <div
+                    key={key}
+                    className={`${styles.statisticsCard} ${color === 'green' ? styles.cardGreen :
+                        color === 'blue' ? styles.cardBlue :
+                            styles.cardOrange
+                        }`}
+                >
+                    <div className={styles.statisticsIcon}>
                         <Icon name={icon} size={20} />
                     </div>
-                    <div className="statistics__content">
-                        <span className="statistics__value">{value}</span>
-                        <span className="statistics__label">{label}</span>
+                    <div className={styles.statisticsContent}>
+                        <span className={styles.statisticsValue}>{value}</span>
+                        <span className={styles.statisticsLabel}>{label}</span>
                     </div>
                 </div>
             ))}

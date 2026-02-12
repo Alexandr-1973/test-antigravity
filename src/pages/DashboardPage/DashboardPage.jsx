@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { dashboardApi } from '../../services/api';
-import Statistics from '../../components/Statistics';
-import RecentCustomers from '../../components/RecentCustomers';
-import IncomeExpenses from '../../components/IncomeExpenses';
-import './DashboardPage.css';
+import Statistics from '../../components/Statistics/Statistics';
+import RecentCustomers from '../../components/RecentCustomers/RecentCustomers';
+import IncomeExpenses from '../../components/IncomeExpenses/IncomeExpenses';
+import styles from './DashboardPage.module.css';
 
 const DashboardPage = () => {
     const [statistics, setStatistics] = useState({ products: 0, suppliers: 0, customers: 0 });
@@ -35,17 +35,17 @@ const DashboardPage = () => {
 
     if (isLoading) {
         return (
-            <div className="dashboard dashboard--loading">
-                <div className="loading-spinner" />
+            <div className={`${styles.dashboard} ${styles.dashboardLoading}`}>
+                <div className={styles.loadingSpinner} />
             </div>
         );
     }
 
     return (
-        <div className="dashboard">
+        <div className={styles.dashboard}>
             <Statistics data={statistics} />
 
-            <div className="dashboard__grid">
+            <div className={styles.dashboardGrid}>
                 <RecentCustomers customers={recentCustomers} />
                 <IncomeExpenses transactions={incomeExpenses} />
             </div>

@@ -1,5 +1,5 @@
-import Icon from '../Icon';
-import './IncomeExpenses.css';
+import Icon from '../Icon/Icon';
+import styles from './IncomeExpenses.module.css';
 
 const IncomeExpenses = ({ transactions }) => {
     const formatCurrency = (amount) => {
@@ -10,11 +10,11 @@ const IncomeExpenses = ({ transactions }) => {
     };
 
     return (
-        <div className="income-expenses">
-            <h2 className="income-expenses__title">Income/Expenses</h2>
+        <div className={styles.incomeExpenses}>
+            <h2 className={styles.incomeExpensesTitle}>Income/Expenses</h2>
 
-            <div className="income-expenses__table-wrapper">
-                <table className="income-expenses__table">
+            <div className={styles.incomeExpensesTableWrapper}>
+                <table className={styles.incomeExpensesTable}>
                     <thead>
                         <tr>
                             <th>Type</th>
@@ -26,7 +26,8 @@ const IncomeExpenses = ({ transactions }) => {
                         {transactions.map((transaction) => (
                             <tr key={transaction.id}>
                                 <td>
-                                    <span className={`income-expenses__type income-expenses__type--${transaction.type}`}>
+                                    <span className={`${styles.incomeExpensesType} ${transaction.type === 'income' ? styles.typeIncome : styles.typeExpense
+                                        }`}>
                                         <Icon
                                             name={transaction.type === 'income' ? 'arrow-up' : 'arrow-down'}
                                             size={14}
@@ -35,10 +36,11 @@ const IncomeExpenses = ({ transactions }) => {
                                     </span>
                                 </td>
                                 <td>
-                                    <span className="income-expenses__name">{transaction.name}</span>
+                                    <span className={styles.incomeExpensesName}>{transaction.name}</span>
                                 </td>
                                 <td>
-                                    <span className={`income-expenses__amount income-expenses__amount--${transaction.type}`}>
+                                    <span className={`${styles.incomeExpensesAmount} ${transaction.type === 'income' ? styles.amountIncome : styles.amountExpense
+                                        }`}>
                                         {transaction.type === 'expense' ? '-' : '+'}
                                         {formatCurrency(transaction.amount)}
                                     </span>

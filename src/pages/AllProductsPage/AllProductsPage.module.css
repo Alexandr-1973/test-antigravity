@@ -1,10 +1,10 @@
-.suppliers-page {
+.productsPage {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-6);
 }
 
-.suppliers-page__header {
+.productsPageHeader {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -12,7 +12,7 @@
     flex-wrap: wrap;
 }
 
-.suppliers-page__add-btn {
+.productsPageAddBtn {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
@@ -26,18 +26,18 @@
     white-space: nowrap;
 }
 
-.suppliers-page__add-btn:hover {
+.productsPageAddBtn:hover {
     background-color: var(--color-primary-dark);
 }
 
-.suppliers-page__content {
+.productsPageContent {
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     overflow: hidden;
 }
 
-.suppliers-page__title {
+.productsPageTitle {
     padding: var(--spacing-5);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
@@ -45,29 +45,29 @@
     border-bottom: 1px solid var(--color-border);
 }
 
-.suppliers-page__loading {
+.productsPageLoading {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 200px;
 }
 
-.suppliers-page__table-wrapper {
+.productsPageTableWrapper {
     overflow-x: auto;
 }
 
-.suppliers-page__table {
+.productsPageTable {
     width: 100%;
-    min-width: 900px;
+    min-width: 800px;
 }
 
-.suppliers-page__table th,
-.suppliers-page__table td {
+.productsPageTable th,
+.productsPageTable td {
     padding: var(--spacing-4) var(--spacing-5);
     text-align: left;
 }
 
-.suppliers-page__table th {
+.productsPageTable th {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-secondary);
@@ -76,61 +76,71 @@
     background-color: var(--color-background);
 }
 
-.suppliers-page__table tbody tr {
+.productsPageTable tbody tr {
     border-bottom: 1px solid var(--color-border-light);
     transition: background-color var(--transition-fast);
 }
 
-.suppliers-page__table tbody tr:last-child {
+.productsPageTable tbody tr:last-child {
     border-bottom: none;
 }
 
-.suppliers-page__table tbody tr:hover {
+.productsPageTable tbody tr:hover {
     background-color: var(--color-background);
 }
 
-.suppliers-page__table td {
+.productsPageTable td {
     font-size: var(--font-size-sm);
     color: var(--color-text-primary);
 }
 
-.suppliers-page__user {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-3);
+.productsPageName {
+    font-weight: var(--font-weight-medium);
 }
 
-.suppliers-page__avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
+.productsPageCategory {
+    display: inline-block;
+    padding: var(--spacing-1) var(--spacing-2);
     background-color: var(--color-primary-light);
     color: var(--color-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    flex-shrink: 0;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
 }
 
-.suppliers-page__action-btn {
+.productsPageActions {
+    display: flex;
+    gap: var(--spacing-2);
+}
+
+.productsPageActionBtn {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 32px;
     height: 32px;
     border-radius: var(--radius-md);
-    background-color: rgba(59, 130, 246, 0.1);
-    color: var(--color-info);
     transition: all var(--transition-fast);
 }
 
-.suppliers-page__action-btn:hover {
+.productsPageActionBtnEdit {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--color-info);
+}
+
+.productsPageActionBtnEdit:hover {
     background-color: rgba(59, 130, 246, 0.2);
 }
 
-.suppliers-page__empty {
+.productsPageActionBtnDelete {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--color-error);
+}
+
+.productsPageActionBtnDelete:hover {
+    background-color: rgba(239, 68, 68, 0.2);
+}
+
+.productsPageEmpty {
     text-align: center;
     padding: var(--spacing-8) !important;
     color: var(--color-text-secondary);
@@ -138,17 +148,17 @@
 
 /* Responsive */
 @media (max-width: 767px) {
-    .suppliers-page__header {
+    .productsPageHeader {
         flex-direction: column;
     }
 
-    .suppliers-page__add-btn {
+    .productsPageAddBtn {
         width: 100%;
         justify-content: center;
     }
 
-    .suppliers-page__table th,
-    .suppliers-page__table td {
+    .productsPageTable th,
+    .productsPageTable td {
         padding: var(--spacing-3);
     }
 }

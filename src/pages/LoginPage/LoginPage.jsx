@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useAuth } from '../../context/AuthContext';
-import Icon from '../../components/Icon';
+import Icon from '../../components/Icon/Icon';
 import pillImage from '../../assets/pill_inline.png';
-import './LoginPage.css';
+import styles from './LoginPage.module.css';
 
 const schema = yup.object({
     email: yup.string().email('Invalid email').required('Email is required'),
@@ -18,7 +18,6 @@ const LoginPage = () => {
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
-            // Updated demo credentials to match the feeling, though functionality remains same
             email: 'admin@medstore.com',
             password: 'password123'
         }
@@ -30,67 +29,72 @@ const LoginPage = () => {
     };
 
     return (
-        <div className="login-page">
+        <div className={styles.loginPage}>
             {/* Background Decorative Shapes */}
-            <div className="login-bg-shape login-bg-shape--1" />
-            <div className="login-bg-shape login-bg-shape--2" />
+            <div className={`${styles.loginBgShape} ${styles.loginBgShape1}`} />
+            <div className={`${styles.loginBgShape} ${styles.loginBgShape2}`} />
 
-            <div className="login-container">
+            <div className={styles.loginContainer}>
                 {/* Header Logo */}
-                <header className="login-header">
-                    <div className="login-brand">
-                        <div className="login-brand__icon">
+                <header className={styles.loginHeader}>
+                    <div className={styles.loginBrand}>
+                        <div className={styles.loginBrandIcon}>
                             <Icon name="logo" size={32} />
                         </div>
-                        <span className="login-brand__text">E-Pharmacy</span>
+                        <span className={styles.loginBrandText}>E-Pharmacy</span>
                     </div>
                 </header>
 
-                <main className="login-content">
+                <main className={styles.loginContent}>
                     {/* Left/Top Section: Text & Visuals */}
-                    <div className="login-visuals">
-                        <div className="pill-div">
-                            <p className="login-title">Your medication,</p>
-                            <img src={pillImage} alt="Pill" className="title-pill-img" />
-                        </div>
-                        <p className="login-title"> delivered Say goodbye to all <span className="text-highlight">your healthcare</span> worries with us</p>
+                    <div className={styles.loginVisuals}>
+                        <h1 className={styles.loginTitle}>
+                            Your medication,{' '}
+                            <span className={styles.pillWrapper}>
+                                <img src={pillImage} alt="Pill" className={styles.titlePillImg} />
+                            </span>{' '}
+                            delivered
+                        </h1>
+                        <p className={styles.loginSubtitle}>
+                            Say goodbye to all <span className={styles.textHighlight}>your healthcare</span> worries with us
+                        </p>
                     </div>
 
                     {/* Right/Bottom Section: Form */}
-                    <div className="login-form-wrapper">
-                        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+                    <div className={styles.loginFormWrapper}>
+                        <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
                             {error && (
-                                <div className="form-alert form-alert--error" role="alert">
+                                <div className={`${styles.formAlert} ${styles.formAlertError}`} role="alert">
                                     <Icon name="close" size={20} />
                                     <span>{error}</span>
                                 </div>
                             )}
 
-                            <div className="form-group">
+                            <div className={styles.formGroup}>
                                 <input
                                     type="email"
                                     id="email"
                                     placeholder="Email address"
-                                    className={`form-input-rounded ${errors.email ? 'form-input--error' : ''}`}
+                                    className={`${styles.formInputRounded} ${errors.email ? styles.formInputError : ''}`}
                                     {...register('email')}
                                 />
-                                {errors.email && <span className="form-error">{errors.email.message}</span>}
+                                {errors.email && <span className={styles.formError}>{errors.email.message}</span>}
                             </div>
 
-                            <div className="form-group">
+                            <div className={styles.formGroup}>
                                 <input
                                     type="password"
                                     id="password"
                                     placeholder="Password"
-                                    className={`form-input-rounded ${errors.password ? 'form-input--error' : ''}`}
+                                    className={`${styles.formInputRounded} ${errors.password ? styles.formInputError : ''}`}
                                     {...register('password')}
                                 />
-                                {errors.password && <span className="form-error">{errors.password.message}</span>}
+                                {errors.password && <span className={styles.formError}>{errors.password.message}</span>}
                             </div>
 
                             <button
                                 type="submit"
-                                className="login-btn-rounded"
+                                className={styles.loginBtnRounded}
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? 'Logging in...' : 'Log in'}
@@ -102,5 +106,6 @@ const LoginPage = () => {
         </div>
     );
 };
+
 
 export default LoginPage;

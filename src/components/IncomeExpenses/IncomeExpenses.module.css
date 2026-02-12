@@ -1,11 +1,11 @@
-.income-expenses {
+.incomeExpenses {
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     overflow: hidden;
 }
 
-.income-expenses__title {
+.incomeExpensesTitle {
     padding: var(--spacing-5);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
@@ -13,22 +13,22 @@
     border-bottom: 1px solid var(--color-border);
 }
 
-.income-expenses__table-wrapper {
+.incomeExpensesTableWrapper {
     overflow-x: auto;
 }
 
-.income-expenses__table {
+.incomeExpensesTable {
     width: 100%;
     min-width: 350px;
 }
 
-.income-expenses__table th,
-.income-expenses__table td {
+.incomeExpensesTable th,
+.incomeExpensesTable td {
     padding: var(--spacing-4) var(--spacing-5);
     text-align: left;
 }
 
-.income-expenses__table th {
+.incomeExpensesTable th {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-secondary);
@@ -37,20 +37,20 @@
     background-color: var(--color-background);
 }
 
-.income-expenses__table tbody tr {
+.incomeExpensesTable tbody tr {
     border-bottom: 1px solid var(--color-border-light);
     transition: background-color var(--transition-fast);
 }
 
-.income-expenses__table tbody tr:last-child {
+.incomeExpensesTable tbody tr:last-child {
     border-bottom: none;
 }
 
-.income-expenses__table tbody tr:hover {
+.incomeExpensesTable tbody tr:hover {
     background-color: var(--color-background);
 }
 
-.income-expenses__type {
+.incomeExpensesType {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-2);
@@ -61,39 +61,39 @@
     text-transform: capitalize;
 }
 
-.income-expenses__type--income {
+.typeIncome {
     background-color: rgba(89, 177, 122, 0.1);
     color: var(--color-income);
 }
 
-.income-expenses__type--expense {
+.typeExpense {
     background-color: rgba(239, 68, 68, 0.1);
     color: var(--color-expense);
 }
 
-.income-expenses__name {
+.incomeExpensesName {
     font-size: var(--font-size-sm);
     color: var(--color-text-primary);
 }
 
-.income-expenses__amount {
+.incomeExpensesAmount {
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
 }
 
-.income-expenses__amount--income {
+.amountIncome {
     color: var(--color-income);
 }
 
-.income-expenses__amount--expense {
+.amountExpense {
     color: var(--color-expense);
 }
 
 /* Responsive */
 @media (max-width: 767px) {
 
-    .income-expenses__table th,
-    .income-expenses__table td {
+    .incomeExpensesTable th,
+    .incomeExpensesTable td {
         padding: var(--spacing-3);
     }
 }

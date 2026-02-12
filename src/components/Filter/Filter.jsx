@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Icon from '../Icon';
+import Icon from '../Icon/Icon';
 import './Filter.css';
 
 const Filter = ({ placeholder = 'Search...', onFilter }) => {

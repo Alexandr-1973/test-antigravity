@@ -1,30 +1,28 @@
-.login-page {
+.loginPage {
     min-height: 100vh;
     background-color: #FAFCFE;
-    /* Very light off-white/blueish tint */
     position: relative;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
 }
 
-.pill-div {
-    display: flex;
-    align-items: baseline;
-    /* Centered looks better for pill/text alignment */
+.pillWrapper {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 /* Background Decorative Shapes */
-.login-bg-shape {
+.loginBgShape {
     position: absolute;
     background-color: rgba(235, 245, 240, 0.8);
-    /* Light pastel green */
     border-radius: 100px;
     z-index: 0;
     pointer-events: none;
 }
 
-.login-bg-shape--1 {
+.loginBgShape1 {
     width: 600px;
     height: 120px;
     bottom: 50px;
@@ -32,7 +30,7 @@
     transform: rotate(-25deg);
 }
 
-.login-bg-shape--2 {
+.loginBgShape2 {
     width: 600px;
     height: 120px;
     bottom: -80px;
@@ -41,7 +39,7 @@
 }
 
 /* Container */
-.login-container {
+.loginContainer {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
@@ -53,29 +51,28 @@
 }
 
 /* Header */
-.login-header {
+.loginHeader {
     padding-top: var(--spacing-4);
     margin-bottom: var(--spacing-8);
 }
 
-.login-brand {
+.loginBrand {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
 }
 
-.login-brand__text {
+.loginBrandText {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-bold);
     color: var(--color-text-primary);
 }
 
 /* Content Layout */
-.login-content {
+.loginContent {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Mobile/Tablet center stack */
     justify-content: center;
     gap: var(--spacing-10);
     flex: 1;
@@ -83,52 +80,53 @@
 }
 
 /* Visuals Section */
-.login-visuals {
-
+.loginVisuals {
     width: 100%;
     max-width: 500px;
-
-
 }
 
 /* Inline Pill Image */
-/* Inline Pill Image */
-.title-pill-img {
+.titlePillImg {
     width: 95px;
     height: 93px;
-    /* object-fit: contain;
-    filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.2)); */
 }
 
 /* Typography Defaults (Mobile) */
-.login-title {
+.loginTitle {
     font-family: "Inter", sans-serif;
     font-weight: 600;
     font-size: 28px;
     line-height: 1.2;
     color: #1d1e21;
     margin: 0;
+    margin-bottom: var(--spacing-4);
 }
 
-.text-highlight {
+.loginSubtitle {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-normal);
+}
+
+.textHighlight {
     color: var(--color-primary);
     display: inline-block;
 }
 
 /* Form Section */
-.login-form-wrapper {
+.loginFormWrapper {
     width: 100%;
     max-width: 400px;
 }
 
-.login-form {
+.loginForm {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
 }
 
 /* Rounded Inputs */
-.form-input-rounded {
+.formInputRounded {
     width: 100%;
     padding: var(--spacing-4) var(--spacing-6);
     border: 1px solid var(--color-border);
@@ -139,21 +137,21 @@
     outline: none;
 }
 
-.form-input-rounded:focus {
+.formInputRounded:focus {
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px var(--color-primary-light);
 }
 
-.form-input-rounded::placeholder {
+.formInputRounded::placeholder {
     color: var(--color-text-light);
 }
 
-.form-input--error {
+.formInputError {
     border-color: var(--color-error);
 }
 
 /* Rounded Button */
-.login-btn-rounded {
+.loginBtnRounded {
     width: 100%;
     padding: var(--spacing-4);
     background-color: var(--color-primary);
@@ -166,17 +164,17 @@
     transition: background-color var(--transition-fast);
 }
 
-.login-btn-rounded:hover {
+.loginBtnRounded:hover {
     background-color: var(--color-primary-dark);
 }
 
-.login-btn-rounded:disabled {
+.loginBtnRounded:disabled {
     background-color: var(--color-text-light);
     cursor: not-allowed;
 }
 
 /* Alerts and Errors */
-.form-alert {
+.formAlert {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
@@ -186,13 +184,13 @@
     font-size: var(--font-size-sm);
 }
 
-.form-alert--error {
+.formAlertError {
     background-color: #FEE2E2;
     color: #DC2626;
     border: 1px solid #FECACA;
 }
 
-.form-error {
+.formError {
     display: block;
     color: var(--color-error);
     font-size: var(--font-size-xs);
@@ -206,21 +204,23 @@
 
 /* Tablet Layout (768px - 1439px) */
 @media (min-width: 768px) and (max-width: 1439px) {
-    .login-visuals {
+    .loginVisuals {
         width: 100%;
         max-width: 100%;
     }
 
-    .login-title {
+    .loginTitle {
         font-size: 54px;
         line-height: 1.1;
+        margin-bottom: var(--spacing-6);
     }
 
-    .pill-div {
-        justify-content: flex-start;
+    .loginSubtitle {
+        font-size: var(--font-size-lg);
+        max-width: 480px;
     }
 
-    .title-pill-img {
+    .titlePillImg {
         width: 179px;
         height: 175px;
     }
@@ -228,75 +228,73 @@
 
 /* Desktop Layout (1440px+) */
 @media (min-width: 1440px) {
-    .login-content {
+    .loginContent {
         flex-direction: row;
-        align-items: baseline;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: space-between;
         padding-top: var(--spacing-12);
         max-width: 1440px;
-        /* width: 100%; */
         margin: 0 auto;
-        gap: 150px;
+        gap: 80px;
     }
 
-    .login-visuals {
-        max-width: 650px;
-        /* Refined to 650px to force 'to all' to line 3 */
+    .loginVisuals {
+        max-width: 614px;
     }
 
-    .login-title {
+    .loginTitle {
         font-size: 54px;
-        line-height: 1.1;
-        font-weight: 700;
+        line-height: 60px;
+        /* Exact match from Figma */
+        font-weight: 600;
+        margin-bottom: var(--spacing-6);
     }
 
-    .pill-div {
-        width: 614px;
-        /* Adjust alignment if needed */
+    .loginSubtitle {
+        font-size: var(--font-size-xl);
+        max-width: 540px;
     }
 
-    .login-form-wrapper {
+    .loginFormWrapper {
         max-width: 450px;
         position: relative;
         z-index: 5;
     }
 
-    .title-pill-img {
+    .titlePillImg {
         width: 179px;
         height: 175px;
-        margin-left: -20px;
-        /* Slight overlap with text */
-        margin-top: 20px;
-        /* Push down to bridge lines */
+        margin-left: 10px;
+        margin-right: 10px;
+        vertical-align: middle;
     }
 }
 
 /* Mobile Tweak (max-width 767px) */
 @media (max-width: 767px) {
-    .login-header {
+    .loginHeader {
         margin-bottom: var(--spacing-4);
     }
 
-    .login-content {
+    .loginContent {
         gap: var(--spacing-8);
         padding-top: var(--spacing-8);
     }
 
-    .login-visuals {
+    .loginVisuals {
         padding-top: var(--spacing-4);
     }
 
-    .login-title {
+    .loginTitle {
         font-size: 28px;
-        /* User spec */
     }
 
-    .title-pill-img {
+    .titlePillImg {
         width: 93px;
         height: 95px;
     }
 
-    .login-bg-shape {
+    .loginBgShape {
         opacity: 0.5;
     }
 }

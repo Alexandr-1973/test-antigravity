@@ -7,13 +7,13 @@
     height: var(--header-height);
 }
 
-.header__left {
+.headerLeft {
     display: flex;
     align-items: center;
     gap: var(--spacing-4);
 }
 
-.header__burger {
+.headerBurger {
     display: none;
     align-items: center;
     justify-content: center;
@@ -24,21 +24,21 @@
     transition: background-color var(--transition-fast);
 }
 
-.header__burger:hover {
+.headerBurger:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.header__burger .icon {
+.headerBurger .icon {
     stroke: currentColor;
 }
 
-.header__title-group {
+.headerTitleGroup {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-1);
 }
 
-.header__title {
+.headerTitle {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-semibold);
     color: var(--color-white);
@@ -46,31 +46,31 @@
     line-height: var(--line-height-tight);
 }
 
-.header__nav {
+.headerNav {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
 }
 
-.header__subtitle {
+.headerSubtitle {
     font-size: var(--font-size-xs);
     color: rgba(255, 255, 255, 0.8);
 }
 
-.header__subtitle--link {
+.headerSubtitleLink {
     transition: color var(--transition-fast);
 }
 
-.header__subtitle--link:hover {
+.headerSubtitleLink:hover {
     color: var(--color-white);
 }
 
-.header__separator {
+.headerSeparator {
     font-size: var(--font-size-xs);
     color: rgba(255, 255, 255, 0.5);
 }
 
-.header__logout {
+.headerLogout {
     display: flex;
     align-items: center;
     gap: var(--spacing-2);
@@ -83,11 +83,11 @@
     transition: background-color var(--transition-fast);
 }
 
-.header__logout:hover {
+.headerLogout:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.header__logout .icon {
+.headerLogout .icon {
     stroke: currentColor;
 }
 
@@ -99,23 +99,23 @@
         min-height: 60px;
     }
 
-    .header__burger {
+    .headerBurger {
         display: flex;
     }
 
-    .header__title {
+    .headerTitle {
         font-size: var(--font-size-lg);
     }
 
-    .header__title-group {
+    .headerTitleGroup {
         display: none;
     }
 
-    .header__logout span {
+    .headerLogout span {
         display: none;
     }
 
-    .header__logout {
+    .headerLogout {
         padding: var(--spacing-2);
     }
 }
@@ -126,7 +126,7 @@
         padding: var(--spacing-4) var(--spacing-6);
     }
 
-    .header__burger {
+    .headerBurger {
         display: flex;
     }
 }

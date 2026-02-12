@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import Header from '../Header';
-import Sidebar from '../Sidebar';
+import Header from '../Header/Header';
+import Sidebar from '../Sidebar/Sidebar';
 import './SharedLayout.css';
 
 const SharedLayout = () => {

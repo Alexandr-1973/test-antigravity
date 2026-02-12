@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import Icon from '../Icon';
+import Icon from '../Icon/Icon';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, title, children }) => {

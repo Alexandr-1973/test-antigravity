@@ -1,17 +1,17 @@
-.orders-page {
+.customersPage {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-6);
 }
 
-.orders-page__content {
+.customersPageContent {
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
     overflow: hidden;
 }
 
-.orders-page__title {
+.customersPageTitle {
     padding: var(--spacing-5);
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
@@ -19,29 +19,29 @@
     border-bottom: 1px solid var(--color-border);
 }
 
-.orders-page__loading {
+.customersPageLoading {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 200px;
 }
 
-.orders-page__table-wrapper {
+.customersPageTableWrapper {
     overflow-x: auto;
 }
 
-.orders-page__table {
+.customersPageTable {
     width: 100%;
     min-width: 800px;
 }
 
-.orders-page__table th,
-.orders-page__table td {
+.customersPageTable th,
+.customersPageTable td {
     padding: var(--spacing-4) var(--spacing-5);
     text-align: left;
 }
 
-.orders-page__table th {
+.customersPageTable th {
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-medium);
     color: var(--color-text-secondary);
@@ -50,31 +50,31 @@
     background-color: var(--color-background);
 }
 
-.orders-page__table tbody tr {
+.customersPageTable tbody tr {
     border-bottom: 1px solid var(--color-border-light);
     transition: background-color var(--transition-fast);
 }
 
-.orders-page__table tbody tr:last-child {
+.customersPageTable tbody tr:last-child {
     border-bottom: none;
 }
 
-.orders-page__table tbody tr:hover {
+.customersPageTable tbody tr:hover {
     background-color: var(--color-background);
 }
 
-.orders-page__table td {
+.customersPageTable td {
     font-size: var(--font-size-sm);
     color: var(--color-text-primary);
 }
 
-.orders-page__user {
+.customersPageUser {
     display: flex;
     align-items: center;
     gap: var(--spacing-3);
 }
 
-.orders-page__avatar {
+.customersPageAvatar {
     width: 36px;
     height: 36px;
     border-radius: var(--radius-full);
@@ -88,7 +88,11 @@
     flex-shrink: 0;
 }
 
-.orders-page__empty {
+.customersPageEmail {
+    color: var(--color-text-secondary);
+}
+
+.customersPageEmpty {
     text-align: center;
     padding: var(--spacing-8) !important;
     color: var(--color-text-secondary);
@@ -97,8 +101,8 @@
 /* Responsive */
 @media (max-width: 767px) {
 
-    .orders-page__table th,
-    .orders-page__table td {
+    .customersPageTable th,
+    .customersPageTable td {
         padding: var(--spacing-3);
     }
 }

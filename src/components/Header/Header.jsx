@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import Logo from '../Logo';
-import Icon from '../Icon';
-import './Header.css';
+import Logo from '../Logo/Logo';
+import Icon from '../Icon/Icon';
+import styles from './Header.module.css';
 
 const Header = ({ onMenuClick }) => {
     const { user, logout } = useAuth();
@@ -14,10 +14,10 @@ const Header = ({ onMenuClick }) => {
     };
 
     return (
-        <header className="header">
-            <div className="header__left">
+        <header className={styles.header}>
+            <div className={styles.headerLeft}>
                 <button
-                    className="header__burger"
+                    className={styles.headerBurger}
                     onClick={onMenuClick}
                     type="button"
                     aria-label="Open menu"
@@ -25,18 +25,18 @@ const Header = ({ onMenuClick }) => {
                     <Icon name="burger" size={24} />
                 </button>
                 <Logo />
-                <div className="header__title-group">
-                    <h1 className="header__title">Medicine Store</h1>
-                    <nav className="header__nav">
-                        <Link to="/dashboard" className="header__subtitle header__subtitle--link">
+                <div className={styles.headerTitleGroup}>
+                    <h1 className={styles.headerTitle}>Medicine Store</h1>
+                    <nav className={styles.headerNav}>
+                        <Link to="/dashboard" className={`${styles.headerSubtitle} ${styles.headerSubtitleLink}`}>
                             Dashboard
                         </Link>
-                        <span className="header__separator">|</span>
-                        <span className="header__subtitle">{user?.email || 'vendor@gmail.com'}</span>
+                        <span className={styles.headerSeparator}>|</span>
+                        <span className={styles.headerSubtitle}>{user?.email || 'vendor@gmail.com'}</span>
                     </nav>
                 </div>
             </div>
-            <button className="header__logout" onClick={handleLogout} type="button">
+            <button className={styles.headerLogout} onClick={handleLogout} type="button">
                 <Icon name="logout" size={16} />
                 <span>Log out</span>
             </button>

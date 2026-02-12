@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { productsApi } from '../../services/api';
 import { productCategories } from '../../data/mockData';
-import Filter from '../../components/Filter';
-import Modal from '../../components/Modal';
-import ProductForm from '../../components/ProductForm';
-import Icon from '../../components/Icon';
-import './AllProductsPage.css';
+import Filter from '../../components/Filter/Filter';
+import Modal from '../../components/Modal/Modal';
+import ProductForm from '../../components/ProductForm/ProductForm';
+import Icon from '../../components/Icon/Icon';
+import styles from './AllProductsPage.module.css';
 
 const AllProductsPage = () => {
     const [products, setProducts] = useState([]);
@@ -81,11 +81,11 @@ const AllProductsPage = () => {
     };
 
     return (
-        <div className="products-page">
-            <div className="products-page__header">
+        <div className={styles.productsPage}>
+            <div className={styles.productsPageHeader}>
                 <Filter placeholder="Product Name" onFilter={handleFilter} />
                 <button
-                    className="products-page__add-btn"
+                    className={styles.productsPageAddBtn}
                     onClick={() => setIsAddModalOpen(true)}
                 >
                     <Icon name="plus" size={16} />
@@ -93,17 +93,17 @@ const AllProductsPage = () => {
                 </button>
             </div>
 
-            <div className="products-page__content">
-                <div className="products-page__table-container">
-                    <h2 className="products-page__title">All products</h2>
+            <div className={styles.productsPageContent}>
+                <div className={styles.productsPageTableContainer}>
+                    <h2 className={styles.productsPageTitle}>All products</h2>
 
                     {isLoading ? (
-                        <div className="products-page__loading">
-                            <div className="loading-spinner" />
+                        <div className={styles.productsPageLoading}>
+                            <div className="loadingSpinner" />
                         </div>
                     ) : (
-                        <div className="products-page__table-wrapper">
-                            <table className="products-page__table">
+                        <div className={styles.productsPageTableWrapper}>
+                            <table className={styles.productsPageTable}>
                                 <thead>
                                     <tr>
                                         <th>Product Info</th>
@@ -117,7 +117,7 @@ const AllProductsPage = () => {
                                 <tbody>
                                     {products.length === 0 ? (
                                         <tr>
-                                            <td colSpan="6" className="products-page__empty">
+                                            <td colSpan="6" className={styles.productsPageEmpty}>
                                                 No products found
                                             </td>
                                         </tr>
@@ -125,25 +125,25 @@ const AllProductsPage = () => {
                                         products.map((product) => (
                                             <tr key={product.id}>
                                                 <td>
-                                                    <span className="products-page__name">{product.name}</span>
+                                                    <span className={styles.productsPageName}>{product.name}</span>
                                                 </td>
                                                 <td>
-                                                    <span className="products-page__category">{product.category}</span>
+                                                    <span className={styles.productsPageCategory}>{product.category}</span>
                                                 </td>
                                                 <td>{product.stock}</td>
                                                 <td>{product.suppliers}</td>
                                                 <td>{formatCurrency(product.price)}</td>
                                                 <td>
-                                                    <div className="products-page__actions">
+                                                    <div className={styles.productsPageActions}>
                                                         <button
-                                                            className="products-page__action-btn products-page__action-btn--edit"
+                                                            className={`${styles.productsPageActionBtn} ${styles.productsPageActionBtnEdit}`}
                                                             onClick={() => openEditModal(product)}
                                                             title="Edit product"
                                                         >
                                                             <Icon name="edit" size={16} />
                                                         </button>
                                                         <button
-                                                            className="products-page__action-btn products-page__action-btn--delete"
+                                                            className={`${styles.productsPageActionBtn} ${styles.productsPageActionBtnDelete}`}
                                                             onClick={() => handleDeleteProduct(product.id)}
                                                             title="Delete product"
                                                         >

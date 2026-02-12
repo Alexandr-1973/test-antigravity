@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { customersApi } from '../../services/api';
-import Filter from '../../components/Filter';
-import Pagination from '../../components/Pagination';
-import './CustomersDataPage.css';
+import Filter from '../../components/Filter/Filter';
+import Pagination from '../../components/Pagination/Pagination';
+import styles from './CustomersDataPage.module.css';
 
 const CustomersDataPage = () => {
     const [customers, setCustomers] = useState([]);
@@ -53,23 +53,23 @@ const CustomersDataPage = () => {
     };
 
     return (
-        <div className="customers-page">
-            <div className="customers-page__header">
+        <div className={styles.customersPage}>
+            <div className={styles.customersPageHeader}>
                 <Filter placeholder="User Name" onFilter={handleFilter} />
             </div>
 
-            <div className="customers-page__content">
-                <div className="customers-page__table-container">
-                    <h2 className="customers-page__title">Customers Data</h2>
+            <div className={styles.customersPageContent}>
+                <div className={styles.customersPageTableContainer}>
+                    <h2 className={styles.customersPageTitle}>Customers Data</h2>
 
                     {isLoading ? (
-                        <div className="customers-page__loading">
-                            <div className="loading-spinner" />
+                        <div className={styles.customersPageLoading}>
+                            <div className="loadingSpinner" />
                         </div>
                     ) : (
                         <>
-                            <div className="customers-page__table-wrapper">
-                                <table className="customers-page__table">
+                            <div className={styles.customersPageTableWrapper}>
+                                <table className={styles.customersPageTable}>
                                     <thead>
                                         <tr>
                                             <th>User Info</th>
@@ -82,7 +82,7 @@ const CustomersDataPage = () => {
                                     <tbody>
                                         {customers.length === 0 ? (
                                             <tr>
-                                                <td colSpan="5" className="customers-page__empty">
+                                                <td colSpan="5" className={styles.customersPageEmpty}>
                                                     No customers found
                                                 </td>
                                             </tr>
@@ -90,15 +90,15 @@ const CustomersDataPage = () => {
                                             customers.map((customer) => (
                                                 <tr key={customer.id}>
                                                     <td>
-                                                        <div className="customers-page__user">
-                                                            <div className="customers-page__avatar">
+                                                        <div className={styles.customersPageUser}>
+                                                            <div className={styles.customersPageAvatar}>
                                                                 {customer.name.charAt(0)}
                                                             </div>
                                                             <span>{customer.name}</span>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <span className="customers-page__email">{customer.email}</span>
+                                                        <span className={styles.customersPageEmail}>{customer.email}</span>
                                                     </td>
                                                     <td>{customer.address}</td>
                                                     <td>{customer.phone}</td>

@@ -4,14 +4,14 @@
     gap: var(--spacing-6);
 }
 
-.dashboard--loading {
+.dashboardLoading {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 400px;
 }
 
-.dashboard__grid {
+.dashboardGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-6);
@@ -19,7 +19,7 @@
 
 /* Responsive */
 @media (max-width: 1199px) {
-    .dashboard__grid {
+    .dashboardGrid {
         grid-template-columns: 1fr;
     }
 }

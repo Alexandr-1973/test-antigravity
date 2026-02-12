@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ordersApi } from '../../services/api';
-import Filter from '../../components/Filter';
-import './AllOrdersPage.css';
+import Filter from '../../components/Filter/Filter';
+import styles from './AllOrdersPage.module.css';
 
 const AllOrdersPage = () => {
     const [orders, setOrders] = useState([]);
@@ -45,26 +45,26 @@ const AllOrdersPage = () => {
     };
 
     const getStatusClass = (status) => {
-        return `status-badge status-badge--${status.toLowerCase()}`;
+        return `statusBadge statusBadge${status.charAt(0).toUpperCase() + status.slice(1).toLowerCase()}`;
     };
 
     return (
-        <div className="orders-page">
-            <div className="orders-page__header">
+        <div className={styles.ordersPage}>
+            <div className={styles.ordersPageHeader}>
                 <Filter placeholder="User Name" onFilter={handleFilter} />
             </div>
 
-            <div className="orders-page__content">
-                <div className="orders-page__table-container">
-                    <h2 className="orders-page__title">All orders</h2>
+            <div className={styles.ordersPageContent}>
+                <div className={styles.ordersPageTableContainer}>
+                    <h2 className={styles.ordersPageTitle}>All orders</h2>
 
                     {isLoading ? (
-                        <div className="orders-page__loading">
-                            <div className="loading-spinner" />
+                        <div className={styles.ordersPageLoading}>
+                            <div className="loadingSpinner" />
                         </div>
                     ) : (
-                        <div className="orders-page__table-wrapper">
-                            <table className="orders-page__table">
+                        <div className={styles.ordersPageTableWrapper}>
+                            <table className={styles.ordersPageTable}>
                                 <thead>
                                     <tr>
                                         <th>User Info</th>
@@ -78,7 +78,7 @@ const AllOrdersPage = () => {
                                 <tbody>
                                     {orders.length === 0 ? (
                                         <tr>
-                                            <td colSpan="6" className="orders-page__empty">
+                                            <td colSpan="6" className={styles.ordersPageEmpty}>
                                                 No orders found
                                             </td>
                                         </tr>
@@ -86,8 +86,8 @@ const AllOrdersPage = () => {
                                         orders.map((order) => (
                                             <tr key={order.id}>
                                                 <td>
-                                                    <div className="orders-page__user">
-                                                        <div className="orders-page__avatar">
+                                                    <div className={styles.ordersPageUser}>
+                                                        <div className={styles.ordersPageAvatar}>
                                                             {order.user.name.charAt(0)}
                                                         </div>
                                                         <span>{order.user.name}</span>

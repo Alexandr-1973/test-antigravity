@@ -1,12 +1,12 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import SharedLayout from './components/SharedLayout';
-import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/DashboardPage';
-import AllOrdersPage from './pages/AllOrdersPage';
-import AllProductsPage from './pages/AllProductsPage';
-import AllSuppliersPage from './pages/AllSuppliersPage';
-import CustomersDataPage from './pages/CustomersDataPage';
+import SharedLayout from './components/SharedLayout/SharedLayout';
+import LoginPage from './pages/LoginPage/LoginPage';
+import DashboardPage from './pages/DashboardPage/DashboardPage';
+import AllOrdersPage from './pages/AllOrdersPage/AllOrdersPage';
+import AllProductsPage from './pages/AllProductsPage/AllProductsPage';
+import AllSuppliersPage from './pages/AllSuppliersPage/AllSuppliersPage';
+import CustomersDataPage from './pages/CustomersDataPage/CustomersDataPage';
 import './App.css';
 
 function App() {

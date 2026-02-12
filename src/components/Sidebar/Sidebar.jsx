@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import Icon from '../Icon';
-import './Sidebar.css';
+import Icon from '../Icon/Icon';
+import styles from './Sidebar.module.css';
 
 const navItems = [
     { path: '/dashboard', icon: 'dashboard', label: 'Dashboard' },
@@ -50,29 +50,29 @@ const Sidebar = ({ isOpen, onClose }) => {
         <>
             {/* Overlay for mobile/tablet */}
             <div
-                className={`sidebar-overlay ${isOpen ? 'sidebar-overlay--open' : ''}`}
+                className={`${styles.sidebarOverlay} ${isOpen ? styles.sidebarOverlayOpen : ''}`}
                 onClick={onClose}
                 aria-hidden="true"
             />
 
-            <aside className={`sidebar ${isOpen ? 'sidebar--open' : ''}`}>
+            <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
                 {/* Mobile/Tablet strip layout */}
-                <div className="sidebar__mobile-strip">
+                <div className={styles.sidebarMobileStrip}>
                     <button
-                        className="sidebar__close"
+                        className={styles.sidebarClose}
                         onClick={onClose}
                         aria-label="Close menu"
                     >
                         <Icon name="close" size={24} />
                     </button>
 
-                    <nav className="sidebar__menu-mobile">
+                    <nav className={styles.sidebarMenuMobile}>
                         {navItems.map(({ path, icon, label }) => (
                             <NavLink
                                 key={path}
                                 to={path}
                                 className={({ isActive }) =>
-                                    `sidebar__link-mobile ${isActive ? 'sidebar__link-mobile--active' : ''}`
+                                    `${styles.sidebarLinkMobile} ${isActive ? styles.sidebarLinkMobileActive : ''}`
                                 }
                                 title={label}
                             >
@@ -82,29 +82,28 @@ const Sidebar = ({ isOpen, onClose }) => {
                     </nav>
 
                     <button
-                        className="sidebar__logout-mobile"
+                        className={styles.sidebarLogoutMobile}
                         onClick={handleLogout}
                         title="Log out"
                     >
-                        {/* Logout icon rotated to match mockup style if needed, but standard is fine */}
                         <Icon name="logout" size={20} />
                     </button>
                 </div>
 
                 {/* Desktop layout */}
-                <nav className="sidebar__nav-desktop">
-                    <ul className="sidebar__menu">
+                <nav className={styles.sidebarNavDesktop}>
+                    <ul className={styles.sidebarMenu}>
                         {navItems.map(({ path, icon, label }) => (
-                            <li key={path} className="sidebar__item">
+                            <li key={path} className={styles.sidebarItem}>
                                 <NavLink
                                     to={path}
                                     className={({ isActive }) =>
-                                        `sidebar__link ${isActive ? 'sidebar__link--active' : ''}`
+                                        `${styles.sidebarLink} ${isActive ? styles.sidebarLinkActive : ''}`
                                     }
                                     title={label}
                                 >
                                     <Icon name={icon} size={20} />
-                                    <span className="sidebar__label">{label}</span>
+                                    <span className={styles.sidebarLabel}>{label}</span>
                                 </NavLink>
                             </li>
                         ))}

@@ -1,4 +1,4 @@
-import Icon from '../Icon';
+import Icon from '../Icon/Icon';
 import './Pagination.css';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
